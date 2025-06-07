@@ -1,0 +1,1 @@
+This is a Refurbished mobile selling and buying web application created using django, javascript, html, css and bootstrap in which user can upload their old phones photos and other user can buy and also includes filtering options to enhance customer satisfaction.
