@@ -1,0 +1,46 @@
+{% extends "base/base.html" %}
+{% load crispy_forms_tags %}
+{% block 'header' %}
+<nav class="navbar">
+    <div class="nav-brand">
+      <a href="{% url "home" %}" class="nav-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-phone-fill" viewBox="0 0 16 16">
+          <path d="M3 2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zm6 11a1 1 0 1 0-2 0 1 1 0 0 0 2 0"/>
+      </svg>
+      HOME
+      </a>
+  </div>
+  <div class="nav-brand">
+      <a href="{% url "logout" %}" class="btn">LOGOUT</a>
+  </div>
+</nav>
+{% endblock  %}
+{% block 'body' %}
+<div class="container-fluid text-center py-5">
+  <div class="container px-4 py-5" id="hanging-icons">
+      <div class="row g-4">
+          <div class="col d-flex align-items-start">
+              <div>
+                  <h2 class="mb-3 border-bottom" style="color: black">Profile</h2>
+              </div>
+          </div>
+      </div>
+      <form action="" method="post">
+          {% csrf_token %}
+          <div class="row">
+              <div class="col-6">
+                  {{ user_form|crispy }}
+                  {{ profile_form|crispy }}
+              </div>
+              <div class="col-6">
+                  {{ location_form|crispy }}
+              </div>
+              <br>
+              <div class="d-flex justify-content-center">
+                <button class="mt-5 btn btn-outline-primary" type="submit" value="Submit">Save</button>
+              </div>
+          </div>
+      </form>
+  </div>
+</div>
+{% endblock %}

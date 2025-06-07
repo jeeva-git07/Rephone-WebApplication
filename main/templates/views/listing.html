@@ -1,0 +1,65 @@
+{% extends "base/base.html" %}
+{% block 'title' %}
+<title>Rephone {{listing.model}} Listing</title>
+{% endblock  %}
+{% block 'body' %}
+<div class="container h-50">
+    <div class="row mt-5 d-flex justify-content-between">
+        <!-- Left Column: Text content -->
+        <div class="col d-flex flex-column justify-content-center">
+            <h3 class="text-primary">{{ listing.brand }}</h3>
+            <h3 class="text-primary">{{ listing.model }}</h3>
+            <h6 class="text-primary">{{ listing.seller.user.username }} - {{ listing.updated_at }}</h6>
+        </div>
+
+        <!-- Right Column: Image -->
+        <div class="col">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <img src="{{ listing.image.url }}" width="200" height="200">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mt-5 container-fluid">
+    <h3 class="text-primary">MOBILE INFORMATION</h3>
+    <div class="row">
+        <div class="col-8">
+            <table class="table table-hover">
+            <tr>
+                <th scope="row">Brand</th>
+                <td>{{listing.brand | capfirst}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Model</th>
+                <td>{{listing.model}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Ram</th>
+                <td>{{listing.ram}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Processor</th>
+                <td>{{listing.processor}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Battery</th>
+                <td>{{listing.battery}}</td>
+            </tr>
+            <tr>
+                <th scope="row">Camera</th>
+                <td>{{listing.camera}}</td>
+            </tr>
+            </table>
+        </div>
+        <div class="col-4 card">
+            <div class="card-body">
+                <div class="card-header">LOCATION</div>
+                <div class="card-body">
+                    <h6>{{listing.location.state}},{{listing.location.city}}</h6>
+                    <button class="w-100 btn btn-lg btn-outline-primary">{{listing.seller.phone_number}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock  %}
